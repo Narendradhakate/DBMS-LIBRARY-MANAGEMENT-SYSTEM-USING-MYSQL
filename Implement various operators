@@ -1,0 +1,41 @@
+USE LIBRARYDATABASE;
+
+Implement various operators in SQL query
+SET SQL_SAFE_UPDATES=0;
+/*1. Arithmetic Operators
+Example: Increase the Pub_Year by 5 for all books.*/
+
+UPDATE NEW_BOOK
+SET Pub_Year = Pub_Year + 5;
+
+/*2. Logical Operators
+Example: Find books published by 'O'Reilly Media' and 'Addison-Wesley'.*/
+SELECT *
+FROM NEW_BOOK
+WHERE Publisher_Name = 'O''Reilly Media' OR Publisher_Name = 'Addison-Wesley';
+
+/*3. Comparison Operator
+Example: Find books published after the year 2015.*/
+SELECT *
+FROM NEW_BOOK
+WHERE Pub_Year > 2015;
+
+/*4. Special Operator (IS NULL)
+Example: Find books with no specified publisher.*/
+SELECT *
+FROM NEW_BOOK
+WHERE Publisher_Name IS NULL;
+
+
+/*5. Set Operation (UNION)
+Example: Combine the titles of books published by 'O'Reilly Media' and 'Addison-Wesley'.*/
+SELECT Title
+FROM NEW_BOOK
+WHERE Publisher_Name = 'O''Reilly Media'
+
+UNION
+
+SELECT Title
+FROM NEW_BOOK
+WHERE Publisher_Name = 'Addison-Wesley';
+
