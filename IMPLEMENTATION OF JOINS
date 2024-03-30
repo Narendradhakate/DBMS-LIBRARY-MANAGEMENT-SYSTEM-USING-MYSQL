@@ -1,0 +1,59 @@
+use librarydatabase;
+
+-- Assuming another table named details for example
+-- Sample data for DETAILS table
+CREATE TABLE DETAILS (
+    Branch_id INT PRIMARY KEY,
+    Branch_Name VARCHAR(255),
+    Address VARCHAR(255)
+);
+
+INSERT INTO DETAILS  VALUES
+(1, 'Main Library', '123 Main St'),
+(2, 'Branch A', '456 Branch Ave'),
+(3, 'Branch B', '789 Branch Ln'),
+(4, 'Branch C', '101 Branch Dr'),
+(5, 'Branch D', '202 Branch Blvd'),
+(6, 'Branch E', '303 Extension St'),
+(7, 'Branch F', '404 Annex Ave'),
+(8, 'Branch G', '505 Library Ln'),
+(9, 'Branch H', '606 Reading Blvd'),
+(10, 'Branch I', '707 Knowledge Dr'),
+(11, 'Branch J', '808 Fiction Ave'),
+(12, 'Branch K', '909 Story Ln'),
+(13, 'Branch L', '010 Novel Blvd'),
+(14, 'Branch M', '121 Literature Dr'),
+(15, 'Branch N', '232 Academic Ave');
+
+-- 1. Inner Join
+SELECT *
+FROM NEW_BOOK
+INNER JOIN DETAILS ON NEW_BOOK.Book_id = DETAILS.Branch_id;
+
+
+-- 2.Left Join (or Left Outer Join)
+SELECT *
+FROM NEW_BOOK
+LEFT JOIN DETAILS ON NEW_BOOK.Book_id = DETAILS.Branch_id;
+
+-- 3.Right Join (or Right Outer Join)
+SELECT *
+FROM NEW_BOOK
+RIGHT JOIN DETAILS ON NEW_BOOK.Book_id = DETAILS.Branch_id;
+
+-- 4.Full Join (or Full Outer Join)
+SELECT *
+FROM NEW_BOOK
+LEFT JOIN DETAILS ON NEW_BOOK.Book_id = DETAILS.Branch_id
+UNION
+SELECT *
+FROM NEW_BOOK
+RIGHT JOIN DETAILS ON NEW_BOOK.Book_id = DETAILS.Branch_id;
+
+-- 5.Natural Join
+SELECT *
+FROM NEW_BOOK
+NATURAL JOIN DETAILS;
+
+
+
