@@ -1,0 +1,19 @@
+use librarydatabase;
+
+
+-- Implement various types of Aggregation Functions
+-- 1. COUNT: Count the number of transactions
+SELECT COUNT(transaction_id) AS transaction_count
+FROM TRANSACTION_LOGS;
+-- 2. MAX: Find the maximum transaction amount
+SELECT MAX(amount) AS max_transaction_amount
+FROM TRANSACTION_LOGS;
+-- 3. MIN: Find the minimum transaction amount
+SELECT MIN(amount) AS min_transaction_amount
+FROM TRANSACTION_LOGS;
+-- 4. SUM: Calculate the total transaction amount
+SELECT SUM(amount) AS total_transaction_amount
+FROM TRANSACTION_LOGS;
+-- 5. AVERAGE: Calculate the average transaction amount
+SELECT AVG(amount) AS average_transaction_amount
+FROM TRANSACTION_LOGS;
