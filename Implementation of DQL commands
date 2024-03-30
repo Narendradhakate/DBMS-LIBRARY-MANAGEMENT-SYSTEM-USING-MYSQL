@@ -1,0 +1,46 @@
+--  Implementation of DQL commands
+-- 2. SELECT with WHERE clause
+SELECT transaction_id, transaction_date, amount, transaction_type, acc_no
+FROM TRANSACTION_LOGS
+WHERE amount > 500;
+-- 3. GROUP BY with aggregate function (SUM)
+SELECT transaction_type, SUM(amount) AS total_amount
+FROM TRANSACTION_LOGS
+GROUP BY transaction_type;
+-- 4. ORDER BY
+SELECT transaction_id, transaction_date, amount, transaction_type, acc_no
+FROM TRANSACTION_LOGS
+ORDER BY transaction_date DESC;
+-- 5. HAVING with GROUP BY
+SELECT transaction_type, SUM(amount) AS total_amount
+FROM TRANSACTION_LOGS
+GROUP BY transaction_type
+HAVING total_amount > 1000;
+-- 6. BETWEEN
+SELECT transaction_id, transaction_date, amount, transaction_type, acc_no
+FROM TRANSACTION_LOGS
+WHERE amount BETWEEN 500 AND 1000;
+-- 7. IN / NOT IN
+SELECT transaction_id, transaction_date, amount, transaction_type, acc_no
+FROM TRANSACTION_LOGS
+WHERE transaction_type IN ('Deposit', 'Withdrawal');
+-- 8. LIKE
+SELECT transaction_id, transaction_date, amount, transaction_type, acc_no
+FROM TRANSACTION_LOGS
+WHERE transaction_type LIKE 'W%';
+-- 9. LIMIT
+SELECT transaction_id, transaction_date, amount, transaction_type, acc_no
+FROM TRANSACTION_LOGS
+LIMIT 5;
+-- 10. ALIAS
+SELECT transaction_id AS ID, transaction_date AS Date, amount AS Amount,
+transaction_type AS Type, acc_no AS AccountNumber
+FROM TRANSACTION_LOGS;
+-- 11. CASE
+SELECT transaction_id, transaction_date, amount,
+CASE
+WHEN amount > 500 THEN 'High Amount'
+WHEN amount > 100 THEN 'Medium Amount'
+ELSE 'Low Amount'
+END AS amount_category
+FROM TRANSACTION_LOGS;
