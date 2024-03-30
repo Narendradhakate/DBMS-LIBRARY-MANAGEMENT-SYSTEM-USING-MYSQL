@@ -1,0 +1,39 @@
+-- Implementation of DML commands
+
+use LibraryDatabase;
+-- implementation
+
+--  1.Create table
+CREATE TABLE NEW_BOOK (
+    Book_id INT PRIMARY KEY,
+    Title VARCHAR(255),
+    Publisher_Name VARCHAR(255),
+    Pub_Year INT
+);
+
+-- 1. Insert data into NEW_BOOK table
+INSERT INTO NEW_BOOK VALUES
+(18, 'Advanced SQL Techniques', 'O''Reilly Media', 2011),
+(19, 'Relational Database Management Essentials', 'Addison-Wesley', 2015),
+(20, 'Python for Data Science', 'Manning Publications', 2019),
+(21, 'Code Craftsmanship', 'Pragmatic Bookshelf', 2012),
+(22, 'Machine Learning Fundamentals', 'O''Reilly Media', 2022),
+(23, 'Database Optimization Strategies', 'Markus Winand', 2018),
+(24, 'JavaScript: Beyond the Basics', 'Packt', 2010),
+(25, 'Architecting Big Data Solutions', 'O''Reilly Media', 2021),
+(26, 'The Efficient Coder', 'Addison-Wesley', 2005),
+(27, 'Mastering TypeScript', 'No Starch Press', 2020),
+(28, 'Advanced Python Programming', 'O''Reilly Media', 2017),
+(29, 'Code Complete', 'Microsoft Press', 2004),
+(30, 'Database Security Best Practices', 'Packt', 2013),
+(31, 'Effective Python Programming', 'O''Reilly Media', 2014),
+(32, 'Data Warehousing and Mining Techniques', 'Morgan Kaufmann', 2008);
+
+-- 2. Update data in NEW_BOOK 
+UPDATE NEW_BOOK 
+SET TITLE= 'I AM A NEW TITLE '
+WHERE  Book_id = 21;
+
+-- 3. Delete the data
+DELETE FROM NEW_BOOK
+WHERE Book_id = 18;
